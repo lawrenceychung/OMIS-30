@@ -1,0 +1,33 @@
+#import libraries
+import random
+even_bet_amount = 0
+odd_bet_amount = 0
+black_bet_amount = 0
+red_bet_amount = 0
+low_bet_amount = 0
+high_bet_amount = 0
+single_number_bet_amount = 0
+user_single_number_bet_number = 38
+user_account = 1000
+
+
+
+def user_validation(answer):
+    while True:
+        if not answer:
+            answer = input("invalid input. Please try again ")
+        elif answer.isdigit() == False:
+            answer = input("invaild input. Please try again ")
+        elif int(answer) < 0 or int(answer) > user_account:
+            answer = input("invalid input. Please try again ")
+        else:
+            return answer
+            break
+
+user_bet = input("enter a number")
+user_validation(user_bet)
+if int(user_bet) == 1:
+       even_bet_amount = input("Please enter the amount to bet on even: ")
+       validation = user_validation(even_bet_amount)
+       user_account = user_account - int(validation)
+       print (user_account)
