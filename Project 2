@@ -1,6 +1,7 @@
 # import libraries
 import random
 
+#sets beginning user account
 user_account = 1000
 
 
@@ -26,6 +27,7 @@ def low (random_output):
         return "It was between 1-18! Your new account balance is ${}".format(user_account)
     else:
         return
+
 #high function calculation
 def high(random_output):
     global user_account
@@ -171,8 +173,6 @@ while True:
             print("You have ${} left after putting ${} on {}".format(user_account, single_bet_amount,
                                                                      single_bet_number))
         elif int(user_bet) == 8:
-            break
-        elif int(user_bet) == 9:
             break
 
 
