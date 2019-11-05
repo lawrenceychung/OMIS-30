@@ -50,8 +50,6 @@ def red(random_output):
     elif roulette_color == "Red":
         user_account = user_account + (red_bet_amount * 2)
         return "It was red! Your new account balance is ${}".format(user_account)
-    else:
-        return ""
 
 # black function calculation
 def black(random_output):
@@ -61,8 +59,7 @@ def black(random_output):
     elif roulette_color == "Black":
         user_account = user_account + (black_bet_amount * 2)
         return "It was black! Your new account balance is ${}".format(user_account)
-    else:
-        return ""
+
 
 
 # low function calculation
@@ -117,15 +114,15 @@ while True:
 
     # print roulette table for visualization
     roulette_table = ("""
-                                 Roulette Table
-       _______________________________________________________________________
-       | R3 | B6 | R9 | R12 | B15 | R18 | R21 | B24 | R27 | R30 | B33 | R36 | |
-    | 37 |____________________________________________________________________|
-       | B2 | R5 | B8 | B11 | R14 | B17 | B20 | R23 | B26 | B29 | R32 | B35 | |
-    |  0 |____________________________________________________________________|
-       | R1 | B4 | R7 | B10 | B13 | R16 | R19 | B22 | R25 | B28 | B31 | R34 | |
-       |______________________________________________________________________|
-       |  1 to 18   |   Even   |   Black   |   Red   |   Odd   |   19 to 36   |
+                              Roulette Table
+   ______________________________________________________________________
+   | R3 | B6 | R9 | R12 | B15 | R18 | R21 | B24 | R27 | R30 | B33 | R36 | | 
+| 00 |____________________________________________________________________|
+   | B2 | R5 | B8 | B11 | R14 | B17 | B20 | R23 | B26 | B29 | R32 | B35 | |
+| 0  |____________________________________________________________________|
+   | R1 | B4 | R7 | B10 | B13 | R16 | R19 | B22 | R25 | B28 | B31 | R34 | |
+  _________________________________________________________________________
+  |   1 to 18   |   Even   |   Black   |   Red   |   Odd   |   19 to 36   |
     """)
     print(roulette_table)
 
@@ -159,7 +156,7 @@ while True:
                 print("Invalid input")
             elif user_bet.isdigit() == False:
                 print("Invalid input ")
-            elif int(user_bet) < 1 or int(user_bet) > 8:
+            elif int(user_bet) < 1 or int(user_bet) > 9:
                 print("Please choose valid bet")
             if int(user_bet) == 1:
                 even_bet_amount = input("Please enter the amount to bet on even: ")
