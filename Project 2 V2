@@ -1,0 +1,241 @@
+# import libraries
+import random
+
+#sets beginning user account
+user_account = 1000
+
+
+# data validation function for bet amounts ONLY
+def user_validation(answer):
+    while True:
+        if not answer:
+            answer = input("Invalid input. Please try again ")
+        elif answer.isdigit() == False:
+            answer = input("Invaild input. Please try again ")
+        elif int(answer) < 0 or int(answer) > user_account:
+            answer = input("Cannot bet more than your account balance. Please try again ")
+        else:
+            return answer
+
+#even function calculation
+def even (random_output):
+    global user_account
+    if even_bet_amount == 0:
+        return
+    elif random_output % 2 == 0:
+        user_account = user_account + (even_bet_amount * 2)
+        return "It was even! Your new account balance is ${}".format(user_account)
+    else:
+        return
+
+#odd function calculation
+def odd (random_output):
+    global user_account
+    if odd_bet_amount == 0:
+         return
+    elif random_output % 2 != 0:
+        user_account = user_account + (odd_bet_amount * 2)
+        return "It was odd! Your new account balance is ${}".format(user_account)
+
+#red function calculation
+def red (random_output):
+    global user_account
+    if red_bet_amount == 0:
+        return
+    elif roulette_color == "Red":
+        user_account = user_account + (red_bet_amount * 2)
+        return "It was red! Your new account balance is ${}".format(user_account)
+
+#black function calculation
+def black (random_output):
+    global user_account
+    if black_bet_amount == 0:
+        return
+    elif roulette_color == "Black":
+        user_account = user_account + (black_bet_amount * 2)
+        return "It was black! Your new account balance is ${}".format(user_account)
+
+#low function calculation
+def low (random_output):
+    global user_account
+    if low_bet_amount == 0:
+        return
+    elif roulette_range == "Low":
+        user_account = user_account + (low_bet_amount * 2)
+        return "It was between 1-18! Your new account balance is ${}".format(user_account)
+    else:
+        return
+
+#high function calculation
+def high(random_output):
+    global user_account
+    # if high bet is true
+    if high_bet_amount == 0:
+        return
+    elif roulette_range == "High":
+        user_account = user_account + (high_bet_amount * 2)
+        return "It was between 19 and 36! Your new account balance is ${}".format(user_account)
+    else:
+        return
+
+#single number bet function calculation
+def single_number (random_output):
+    global user_account
+    if single_bet_amount == 0:
+        return
+    elif int(random_output) == single_bet_number:
+        user_account = user_account + single_bet_amount * 35
+        return "Congratulations it was {}! Your new account balance is ${}".format(random_output, user_account)
+    elif int(random_output) != single_bet_number:
+        return "Sorry it wasn't {}. Your new account balance is ${}".format(single_bet_number, user_account)
+
+
+while True:
+    #sets all bet amounts to be 0 at the beginning
+    even_bet_amount = 0
+    odd_bet_amount = 0
+    black_bet_amount = 0
+    red_bet_amount = 0
+    low_bet_amount = 0
+    high_bet_amount = 0
+    single_bet_amount = 0
+    single_bet_number = 38
+
+    #print roulette table for visualization
+    roulette_table = ("""
+                                 Roulette Table
+       ______________________________________________________________________
+       | R3 | B6 | R9 | R12 | B15 | R18 | R21 | B24 | R27 | R30 | B33 | R36 | | 2 to 1 |
+    | 00 |____________________________________________________________________|
+       | B2 | R5 | B8 | B11 | R14 | B17 | B20 | R23 | B26 | B29 | R32 | B35 | | 2 to 1 |
+    | 0  |____________________________________________________________________|
+       | R1 | B4 | R7 | B10 | B13 | R16 | R19 | B22 | R25 | B28 | B31 | R34 | | 2 to 1 |
+       ______________________________________________________________________
+       |       1st 12       |         2nd 12        |         3rd 12        |
+      _________________________________________________________________________
+      |   1 to 18   |   Even   |   Black   |   Red   |   Odd   |   19 to 36   |
+    """)
+    print (roulette_table)
+
+    # prints possible bets in a menu for user to choose
+    bets = {
+        1: "Even Bets",
+        2: "Odd Bets",
+        3: "Red Bets",
+        4: "Black Bets",
+        5: "Low Bets",
+        6: "High Bets",
+        7: "Single Number Bets",
+        8: "Spin Roulette",
+        9: "Leave Table"
+    }
+    print(bets)
+
+    # Determines user account balance after a specific bet
+    while True:
+        print("You currently have ${} in your account".format(user_account))
+        user_bet = input("Please enter your type of bet: ")
+        if not user_bet:
+            print("Invalid input")
+        elif user_bet.isdigit() == False:
+            print("Invalid input ")
+        elif int(user_bet) < 1 or int(user_bet) > 9:
+            print("Please choose valid bet")
+        elif int(user_bet) == 1:
+            even_bet_amount = input("Please enter the amount to bet on even: ")
+            validation = user_validation(even_bet_amount)
+            even_bet_amount = int(validation)
+            user_account = user_account - even_bet_amount
+            print("You have ${} left after putting ${} on even".format(user_account, even_bet_amount))
+        elif int(user_bet) == 2:
+            odd_bet_amount = input("Please enter the amount to bet on odd: ")
+            validation = user_validation(odd_bet_amount)
+            odd_bet_amount = int(validation)
+            user_account = user_account - odd_bet_amount
+            print("You have ${} left after putting ${} on odd".format(user_account, odd_bet_amount))
+        elif int(user_bet) == 3:
+            red_bet_amount = input("Please enter the amount to bet on red: ")
+            validation = user_validation(red_bet_amount)
+            red_bet_amount = int(validation)
+            user_account = user_account - red_bet_amount
+            print("You have ${} left after putting ${} on red".format(user_account, red_bet_amount))
+        elif int(user_bet) == 4:
+            black_bet_amount = input("Please enter the amount to bet on black: ")
+            validation = user_validation(black_bet_amount)
+            black_bet_amount = int(validation)
+            user_account = user_account - black_bet_amount
+            print("You have ${} left after putting ${} on black".format(user_account, black_bet_amount))
+        elif int(user_bet) == 5:
+            low_bet_amount = input("Please enter the amount to bet on low: ")
+            validation = user_validation(low_bet_amount)
+            low_bet_amount = int(validation)
+            user_account = user_account - low_bet_amount
+            print("You have ${} left after putting ${} on low".format(user_account, low_bet_amount))
+        elif int(user_bet) == 6:
+            high_bet_amount = input("Please enter the amount to bet on high: ")
+            validation = user_validation(high_bet_amount)
+            high_bet_amount = int(validation)
+            user_account = user_account - high_bet_amount
+            print("You have ${} left after putting ${} on high".format(user_account, high_bet_amount))
+        elif int(user_bet) == 7:
+            single_bet_number = input("What number do u want to bet on ")
+            while True:
+                if not single_bet_number:
+                    single_bet_number = input("Invalid input. Please try again ")
+                elif single_bet_number.isdigit() == False:
+                    single_bet_number = input("Invaild input. Please try again ")
+                elif int(single_bet_number) < 0 or int(single_bet_number) >= 38:
+                    single_bet_number = input("Invalid input. Please try again ")
+                else:
+                    break
+            single_bet_amount= input("Please enter the amount to bet on {}: ".format(single_bet_number))
+            validation = user_validation(single_bet_amount)
+            single_bet_amount = int(validation)
+            user_account = user_account - single_bet_amount
+            print("You have ${} left after putting ${} on {}".format(user_account, single_bet_amount,
+                                                                     single_bet_number))
+        elif int(user_bet) == 8:
+            break
+
+    # gives a random output between 0-37, where 37 = 00
+    random_output= random.randint(0, 37)
+
+    # determines whether the output is red or black
+    roulette_color = ""
+    if random_output in range(1, 11) or random_output in range(19, 29):
+        if random_output % 2 == 0:
+            roulette_color = "Black"
+            print("{} Black".format(random_output))
+        else:
+            roulette_color = "Red"
+            print("{} Red".format(random_output))
+    elif random_output in range(11, 19) or random_output in range(29, 37):
+        if random_output % 2 == 0:
+            roulette_color = "Red"
+            print("{} Red".format(random_output))
+        else:
+            roulette_color = "Black"
+            print("{} Black".format(random_output))
+
+    #determine roulette range
+    roulette_range = ""
+    if random_output in range(1, 19):
+        roulette_range = "Low"
+    elif random_output in range(19, 37):
+        roulette_range = "High"
+
+    #prints results
+    even_result = even(random_output)
+    print (even_result)
+    odd_result = odd(random_output)
+    print (odd_result)
+    red_result = red(random_output)
+    print (red_result)
+    black_result = black(random_output)
+    print (black_result)
+    low_result = low(random_output)
+    print(low_result)
+    high_result = high(random_output)
+    print(high_result)
+    single_number_result = single_number(random_output)
+    print (single_number_result)
