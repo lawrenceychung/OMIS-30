@@ -8,7 +8,9 @@ with open('headers.txt', 'r') as txt:
         filewriter = csv.writer(newfile, delimiter =',')
         filewriter.writerow(header)
 
-fields=['0','CA','100']
 with open ('newfile.csv','a') as newfile:
     writer = csv.writer(newfile)
-    writer.writerow(fields)
+    with open('dataonly.csv', 'r') as csv_data:
+        data = csv.reader(csv_data)
+        for row in data:
+            writer.writerow(row)
