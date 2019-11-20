@@ -1,8 +1,12 @@
 import csv
 
-with open('newfile.csv','w') as newfile:
-    filewriter = csv.writer(newfile, delimiter =',')
-    filewriter.writerow(['Index','State','Amount'])
+with open('headers.txt', 'r') as txt:
+    lines = txt.readlines()
+    for l in lines:
+        header = (l.split(','))
+    with open('newfile.csv','w') as newfile:
+        filewriter = csv.writer(newfile, delimiter =',')
+        filewriter.writerow(header)
 
 fields=['0','CA','100']
 with open ('newfile.csv','a') as newfile:
