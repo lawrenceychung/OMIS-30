@@ -1,16 +1,16 @@
 import csv
 
-with open('headers.txt', 'r') as txt:
+with open('headers.txt', 'r', newline='') as txt:
     lines = txt.readlines()
     for l in lines:
         header = (l.split(','))
-    with open('newfile.csv','w') as newfile:
+    with open('newfile.csv','w',newline='') as newfile:
         filewriter = csv.writer(newfile, delimiter =',')
         filewriter.writerow(header)
 
-with open ('newfile.csv','a') as newfile:
+with open ('newfile.csv','a', newline='') as newfile:
     writer = csv.writer(newfile)
-    with open('dataonly.csv', 'r') as csv_data:
+    with open('dataonly.csv', 'r', newline='') as csv_data:
         data = csv.reader(csv_data)
         for row in data:
             writer.writerow(row)
