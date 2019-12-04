@@ -217,17 +217,17 @@ def confirm_bets():
     # Bet validation - checks that user's bet does not exceed their account
     if even_bet_amount > user_account:
         even_bet_amount = user_account
-    elif odd_bet_amount > (user_account - even_bet_amount):
+    if odd_bet_amount > (user_account - even_bet_amount):
         odd_bet_amount = user_account - even_bet_amount
-    elif red_bet_amount > (user_account - even_bet_amount - odd_bet_amount):
+    if red_bet_amount > (user_account - even_bet_amount - odd_bet_amount):
         red_bet_amount = user_account - even_bet_amount - odd_bet_amount
-    elif black_bet_amount > (user_account - even_bet_amount - odd_bet_amount - red_bet_amount):
+    if black_bet_amount > (user_account - even_bet_amount - odd_bet_amount - red_bet_amount):
         black_bet_amount = user_account - even_bet_amount - odd_bet_amount - red_bet_amount
-    elif low_bet_amount > (user_account - even_bet_amount - odd_bet_amount - red_bet_amount - black_bet_amount):
+    if low_bet_amount > (user_account - even_bet_amount - odd_bet_amount - red_bet_amount - black_bet_amount):
         low_bet_amount = user_account - even_bet_amount - odd_bet_amount - red_bet_amount - black_bet_amount
-    elif high_bet_amount > (user_account - even_bet_amount - odd_bet_amount - red_bet_amount - black_bet_amount - low_bet_amount):
+    if high_bet_amount > (user_account - even_bet_amount - odd_bet_amount - red_bet_amount - black_bet_amount - low_bet_amount):
         high_bet_amount = user_account - even_bet_amount - odd_bet_amount - red_bet_amount - black_bet_amount - low_bet_amount
-    elif single_bet_number > (user_account - even_bet_amount - odd_bet_amount - red_bet_amount - black_bet_amount - low_bet_amount - high_bet_amount):
+    if single_bet_number > (user_account - even_bet_amount - odd_bet_amount - red_bet_amount - black_bet_amount - low_bet_amount - high_bet_amount):
         single_bet_amount = user_account - even_bet_amount - odd_bet_amount - red_bet_amount - black_bet_amount - low_bet_amount - high_bet_amount
 
     # Calculating new user account after all bets
