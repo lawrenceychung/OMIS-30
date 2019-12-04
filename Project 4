@@ -1,5 +1,5 @@
 # HTML For Roulette
-
+#Home page HTML
 homeHTML = """</p>
 <!-- Game Homepage-->
 <p><br />Choose Game</p>
@@ -9,6 +9,7 @@ homeHTML = """</p>
 <p>&nbsp;</p>
 <p>""".strip()
 
+#Roulette home page HTML
 roulette_homeHTML = """</p>
 <!-- Roulette Home-->
 <p>&nbsp;Join Table?</p>
@@ -17,6 +18,7 @@ roulette_homeHTML = """</p>
 <!-- Bet Page-->
 <p>""".strip()
 
+#Placing bets page HTML
 selecting_bets = """</p>
 <p>&nbsp;<img src="http://www.alwaysfuncasinos.com/images/RouletteLayout.PNG" alt="" width="463" height="234" /></p>
 <p>Current Account Balance: ${} <br /><br /></p>
@@ -81,6 +83,7 @@ selecting_bets = """</p>
 </form>
 <p>""".strip()
 
+#Bet confirmation page HTML
 bet_calculation = """</p>
 <p>You have bet:</p>
 <table>
@@ -127,17 +130,18 @@ bet_calculation = """</p>
 <p><a href="/spinning">Spin Wheel</a></p>
 <p>""".strip()
 
+#Rolutte spin page HTML
 spinning_page = """<head> <meta http-equiv="Refresh" content="8.5;url=/results"> </head> <p> <img 
 src="https://i.pinimg.com/originals/30/16/25/30162543258ca8058fe7bc4003be2a33.gif" alt="" width="600" height="374" 
 /></p> <p>""".strip()
 
+#Rsults page HTML
 html_results = """</p>
 <p>The Ball Landed On...&nbsp;<br /> {} {}! {}</p>
 <p>Your new account balance is: ${}<br /><br /> <a href="/bets">Play Again</a></p>
 <p><a href="/">Back to Home</a>""".strip()
 
 # Roulette App Code
-
 from flask import Flask, request
 import random
 
