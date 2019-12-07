@@ -1,0 +1,56 @@
+#practice problem 1
+import random
+
+user_input = input("Enter a word: ")
+
+
+def letter_scramble(user_input):
+    letter_input = list(user_input)
+    random.shuffle(letter_input)
+    print("".join(letter_input))
+
+
+letter_scramble(user_input)
+
+#Practice Problem 2
+user_input = input("Enter a phrase: ")
+def pig_latin(user_input):
+    user_letters = user_input.split(" ")
+    for letter in user_letters:
+        vowel_list = ["a","e","i","o","u"]
+        if letter[0] in vowel_list:
+            letter = letter + "-yay"
+        else:
+            letter = letter[1:] + ("-{}ay".format(letter[0]))
+        print (letter)
+pig_latin(user_input)
+
+#practice problem 3
+import math
+user_input = input("Please enter a number: ")
+def factorial_calulator(user_input):
+    while True:
+        if not user_input:
+            user_input = input("Please enter a number: ")
+        elif user_input.isdigit() == False:
+            user_input = input("Please enter a number: ")
+        elif int(user_input) < 1:
+            user_input = input("Please enter a number: ")
+        else:
+           print(math.factorial(int(user_input)))
+           break
+factorial_calulator(user_input)
+
+#practice problem 4
+user_input = input("Enter a your ingredients (seperated with a comma): ")
+user_input = user_input.replace(" ","")
+user_input = user_input.lower()
+ingredient_list = user_input.split(",")
+
+menu = {}
+menu["steak dinner"] = ["steak","potatos","asparagus"],
+menu["fried noodles"] = ["noodles","soy sauce", "onions","chicken"],
+menu["soup noodles"] = ["noodles","soup base","onions","chicken"]
+
+if menu["steak dinner"] == user_input:
+    print ("dinner")
