@@ -1,0 +1,34 @@
+#import libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#reading first 5 rows from data set
+df = pd.read_csv('Motor Vehicle Crashes_SAMPLE.csv')
+df.head()
+_____________________________________________________________________________________________________________________________
+#First Interesting Fact
+#Most traffic occur during Monday and thus it makes sense that the most crashes happen on Monday. 
+#However, Saturday is usually a day where people like to go out a lot and so it is suprising that the amount of crashes on 
+#Saturday is less than that of normal weekdays such as Thursday.
+
+df.groupby(['Day of Week']).count()["Year"].plot.barh()
+plt.title('Amount of Crashes per Day')
+plt.xlabel('Number of Accidents')
+_______________________________________________________________________________________________________________________________
+#Second Interesting Fact
+#The next interesting fact is that most crashes happend on a straight and level road, which is unique 
+#because drivers have better visibility and control on a stright road compared to a hill or a curve. 
+#However, crashes on a stright and level road is significantly greater than any other road type.
+
+df.groupby(['Road Descriptor']).count()['Year'].plot.barh()
+plt.title('Crashes based Road Descriptors')
+plt.xlabel('Number of Accidents')
+_______________________________________________________________________________________________________________________________
+#Third Interesting Fact
+#It is highly unlikely that crashes would result in property damage and injury damages. 
+#Instead, property damage is the most common accidents followed by injury damages. 
+#Thus, it can be inferred that the safety of cars are relatively high since personal injuries are not as prevelant as property damages.
+
+df.groupby(['Crash Descriptor']).count()['Year'].plot.barh()
+plt.title('Types of Damages')
+plt.xlabel('Number of Accidents')
